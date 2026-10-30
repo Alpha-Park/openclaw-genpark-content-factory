@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-genpark-content-factory",
+  "version": "1.0.0",
+  "description": "OpenClaw GenPark Content Factory - Headline emotional impact scoring, prose rhythm cadence variance, and video retention decay modeling with zero dependencies.",
+  "tools": [
+    "evaluate_headline_impact_score",
+    "analyze_prose_rhythm_cadence",
+    "predict_hook_retention_curve"
+  ]
+}
