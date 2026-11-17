@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any
 from client import OpenClawGenParkContentFactory
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("openclaw-genpark-content-factory")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("openclaw-genpark-content-factory")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('openclaw-genpark-content-factory')
 
 factory = OpenClawGenParkContentFactory()
 
@@ -52,8 +43,7 @@ def predict_hook_retention_curve(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Content Factory:")
-    print(evaluate_headline_impact_score("7 Proven Secrets That Will Revolutionize Your Agent Workflows"))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
